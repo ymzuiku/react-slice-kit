@@ -1,4 +1,4 @@
-import { loadable } from '../fp';
+import loadable from '../utils/loadable';
 import { Loading } from '../components';
 
 const App = loadable(Loading, () => import('./App'), true);

@@ -1,6 +1,6 @@
 import Loadable from 'react-loadable';
 
-export function loadable(LoadingComponent, loaderFn, isPreload) {
+export default function loadable(LoadingComponent, loaderFn, isPreload) {
   const Comp = Loadable({
     loader: loaderFn,
     loading: LoadingComponent,
@@ -13,17 +13,3 @@ export function loadable(LoadingComponent, loaderFn, isPreload) {
   }
   return Comp;
 }
-
-export function vm(self, key, value) {
-  self.setState({
-    [key]: value,
-  });
-}
-
-export const springConfig = {
-  tension: 190,
-  friction: 23,
-  velocity: 0,
-  restDisplacementThreshold: 0.002,
-  restSpeedThreshold: 0.002,
-};
