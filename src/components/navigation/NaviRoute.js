@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, historyAddListen, historyRemoveListen } from './routerHistory';
-import { Spring } from 'react-spring';
+import { Spring, animated } from 'react-spring';
 
 const IProps = {
-  fixNumber: 1,
   exact: false,
+  always: false,
   path: '',
   component: undefined,
   render: undefined,
@@ -21,67 +21,81 @@ NaviRoute = class extends React.PureComponent {
   listen = 0;
   state = {
     nowRoute: false,
+    onAnime: false,
     index: this.props.root ? 1 : 0,
-    staticAnime: this.props.root ? 0 : window.innerWidth,
-    isAnime: false,
+    isNearPage: true,
     moveAnimeA: this.props.root ? 0 : window.innerWidth,
-    moveAnimeB: !this.props.root ? 0 : window.innerWidth,
+    moveAnimeB: window.innerWidth,
   };
   componentDidMount() {
-    const path = this.props.path.replace('*', '');
-    this.listen = historyAddListen(h => {
-      let index = 0;
-      for (let i = 0; i < h.entries.length; i++) {
-        const r = h.entries[i];
-        if (r.pathname === path) {
-          index = i;
-        }
-      }
-      if (index === h.index && !this.state.nowRoute) {
-        // 新页面从右边推到中间
-        this.setState({
-          nowRoute: true,
-          index: 1,
-          moveAnimeA: window.innerWidth * this.props.fixNumber,
-          moveAnimeB: 0,
-        });
-      } else if (index > h.index && this.state.nowRoute) {
-        // 当前页面从中间推到右边
-        this.setState({
-          nowRoute: false,
-          index: 0,
-          moveAnimeA: 0,
-          moveAnimeB: window.innerWidth * this.props.fixNumber,
-        });
-      } else if (index < h.index && this.state.nowRoute) {
-        // 当前页面从左边回到中间
-        this.setState({
-          nowRoute: false,
-          index: 0,
-          moveAnimeA: -window.innerWidth * this.props.fixNumber,
-          moveAnimeB: 0,
-        });
-      }
-    });
+    this.listen = historyAddListen(this.onHistoryChange);
   }
   componentWillUnmount() {
     historyRemoveListen(this.listen);
   }
+  onHistoryChange = h => {
+    let index = 0;
+    const path = this.props.path.replace('*', '');
+    for (let i = 0; i < h.entries.length; i++) {
+      const r = h.entries[i];
+      if (r.pathname === path) {
+        index = i;
+      }
+    }
+    const isNearPage = h.index - index === 1;
+    if (index === h.index && !this.state.nowRoute) {
+      // 新页面从右边推到中间
+      this.setState({
+        isNearPage,
+        onAnime: true,
+        nowRoute: true,
+        index: 1,
+        moveAnimeA: window.innerWidth * this.props.fixNumber,
+        moveAnimeB: 0,
+      });
+    } else if (index > h.index && this.state.nowRoute) {
+      // 当前页面从中间推到右边
+      this.setState({
+        isNearPage,
+        onAnime: true,
+        nowRoute: false,
+        index: 0,
+        moveAnimeA: 0,
+        moveAnimeB: window.innerWidth,
+      });
+    } else if (index < h.index && this.state.nowRoute) {
+      // 当前页面中间推到左边
+      this.setState({
+        isNearPage,
+        onAnime: true,
+        nowRoute: false,
+        index: 0,
+        moveAnimeA: 0,
+        moveAnimeB: -window.innerWidth,
+      });
+    }
+  };
   onRest = () => {
     this.setState({
-      staticAnime: this.moveAnimeB / this.props.fixNumber,
-      isAnime: false,
+      onAnime: false,
     });
   };
   render() {
-    const moveX = this.props.animed
-      ? this.state.moveAnime
-      : this.state.staticAnime;
+    let path = this.props.path;
+    if (this.props.always || this.state.isNearPage || this.state.onAnime) {
+      path = '*';
+    }
     return (
       <Spring
         onRest={this.onRest}
-        config={{ tension: 170, friction: 8, velocity: 0 }}
-        native={!this.props.animed}
+        config={{
+          tension: 210,
+          friction: 26,
+          velocity: 0,
+          restDisplacementThreshold: 0.001,
+          restSpeedThreshold: 0.001,
+        }}
+        native
         from={{
           transform: `perspective(600px) translate3d(${
             this.state.moveAnimeA
@@ -94,27 +108,24 @@ NaviRoute = class extends React.PureComponent {
         }}
       >
         {sp => (
-          <div
-            style={[
-              sp,
-              {
-                flex: 1,
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                backgroundColor: this.props.backgroundColor,
-                zIndex: this.state.index * 10,
-              },
-            ]}
+          <animated.div
+            style={{
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              backgroundColor: this.props.backgroundColor,
+              zIndex: this.state.index * 10,
+              transform: sp.transform,
+            }}
           >
             <Route
               exact={this.props.exact}
-              path={this.state.isAnime ? '*' : this.props.path}
+              path={path}
               component={this.props.component}
               render={this.props.render}
               children={this.props.children}
             />
-          </div>
+          </animated.div>
         )}
       </Spring>
     );

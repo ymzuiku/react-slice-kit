@@ -24,6 +24,17 @@ module.exports = {
   entry: {
     index: tip.paths.entry,
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          chunks: 'initial',
+          minChunks: 2,
+        },
+      },
+    },
+  },
   output: {
     path: tip.paths.output,
     pathinfo: true,

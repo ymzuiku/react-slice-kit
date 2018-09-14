@@ -18,7 +18,6 @@ import NaviRoute from './NaviRoute';
 import isIphoneX from './isIphoneX';
 
 export {
-  isIphoneX,
   hashChange,
   history,
   nowHistory,
@@ -31,7 +30,8 @@ export {
   withRouter,
   historyAddListen,
   historyRemoveListen,
+  goToHome,
+  isIphoneX,
   NaviBar,
   NaviRoute,
-  goToHome,
 };

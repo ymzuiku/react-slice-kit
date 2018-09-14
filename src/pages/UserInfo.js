@@ -2,14 +2,11 @@ import React from 'react';
 import { Title, FullCenter } from '../styleds';
 import { history } from '../components/navigation';
 
-export default class User extends React.PureComponent {
-  gotoUser = () => {
-    history.goBack();
-  };
+export default class extends React.PureComponent {
   render() {
     return (
       <FullCenter>
-        <Title>User page</Title>
+        <Title onClick={history.goBack}>User Info page</Title>
       </FullCenter>
     );
   }

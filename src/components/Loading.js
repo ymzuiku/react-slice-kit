@@ -10,3 +10,5 @@ export default class Loading extends React.PureComponent {
     );
   }
 }
+
+window['Loading'] = Loading;

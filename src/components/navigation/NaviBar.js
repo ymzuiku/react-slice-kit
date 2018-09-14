@@ -21,7 +21,7 @@ const IProps = {
   children: [],
 };
 
-let NaviBar = (v = IProps) => <View />;
+let NaviBar = (v = IProps) => <div />;
 
 NaviBar = class extends React.PureComponent {
   historyAddListenID = 0;
@@ -29,13 +29,13 @@ NaviBar = class extends React.PureComponent {
     leftTitle: '< goback',
     title: 'home',
     middleButton: str => {
-      return <Text>{str}</Text>;
+      return <div>{str}</div>;
     },
     leftButton: str => {
       return (
-        <TouchableOpacity onPress={goBack} style={ssc.leftButton}>
-          <Text>{str}</Text>
-        </TouchableOpacity>
+        <div onClick={goBack} style={ssc.leftButton}>
+          {str}
+        </div>
       );
     },
     rightButton: () => null,
@@ -51,7 +51,7 @@ NaviBar = class extends React.PureComponent {
   }
 };
 
-const ssc = StyleSheet.create({
+const ssc = {
   container: {
     flexDirection: 'row',
     flex: 1,
@@ -81,6 +81,6 @@ const ssc = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+};
 
 export default NaviBar;

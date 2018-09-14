@@ -2,14 +2,14 @@ import React from 'react';
 import { Title, FullCenter } from '../styleds';
 import { history } from '../components/navigation';
 
-export default class Home extends React.PureComponent {
+export default class extends React.PureComponent {
   gotoUser = () => {
-    history.push('/user/');
+    history.push('/User/');
   };
   render() {
     return (
       <FullCenter>
-        <Title>Home page</Title>
+        <Title onClick={this.gotoUser}>Home page</Title>
       </FullCenter>
     );
   }
