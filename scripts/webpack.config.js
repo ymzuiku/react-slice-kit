@@ -24,23 +24,34 @@ module.exports = {
   entry: {
     index: tip.paths.entry,
   },
+  // webpack4默认的chunks参数
   optimization: {
     splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
       cacheGroups: {
-        commons: {
-          name: 'commons',
-          chunks: 'initial',
-          minChunks: 2,
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
         },
-      },
-    },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
   output: {
     path: tip.paths.output,
     pathinfo: true,
     filename: '[name]_[hash:8].js',
-    chunkFilename: '[name].chunk.js',
-    // publicPath: '/',
+    chunkFilename: '[name]_[hash:8].chunk.js',
   },
   resolve: {
     extensions: tip.resolve.extensions,
