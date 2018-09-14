@@ -5,5 +5,4 @@ function isIphoneX() {
   );
 }
 
-
 export default isIphoneX();

@@ -3,7 +3,7 @@ import { history } from './routerHistory';
 import isIPhoneX from './isIphoneX';
 
 const barHeight = 50;
-const statusBarHeight = Platform.OS === 'web' ? 0 : isIPhoneX ? 42 : 20;
+const statusBarHeight = window.plan === 'web' ? 0 : isIPhoneX ? 42 : 20;
 
 function goBack() {
   history.goBack();

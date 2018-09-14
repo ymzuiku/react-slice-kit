@@ -1,9 +1,8 @@
-import Loading from './Loading';
-import Loadable from 'react-loadable';
+import loadable from 'react-loadable';
+import { Loading } from '../components';
 
-const App = Loadable({
-  loader: () => import('./App'),
-  loading: Loading,
-});
+const App = loadable({ loader: () => import('./App'), loading: Loading });
+const Home = loadable({ loader: () => import('./Home'), loading: Loading });
+const User = loadable({ loader: () => import('./User'), loading: Loading });
 
-export { App };
+export { App, Home, User };

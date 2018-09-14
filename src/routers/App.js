@@ -1,14 +1,25 @@
 import React from 'react';
-import { Title, FullCenter } from '../styleds';
+import {
+  Router,
+  NaviRoute,
+  history,
+  hashChange,
+} from '../components/navigation';
+import { Home, User } from './index';
 
-class App extends React.PureComponent {
+export default class App extends React.PureComponent {
+  componentDidMount() {
+    history.push('/home/');
+    hashChange();
+  }
   render() {
     return (
-      <FullCenter>
-        <Title>Hello App</Title>
-      </FullCenter>
+      <Router history={history}>
+        <div>
+          <NaviRoute exact path="/home/*" component={Home} />
+          <NaviRoute exact path="/user/*" component={User} />
+        </div>
+      </Router>
     );
   }
 }
-
-export default App;
