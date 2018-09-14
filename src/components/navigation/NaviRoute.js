@@ -89,11 +89,11 @@ NaviRoute = class extends React.PureComponent {
       <Spring
         onRest={this.onRest}
         config={{
-          tension: 210,
-          friction: 26,
+          tension: 190,
+          friction: 23,
           velocity: 0,
-          restDisplacementThreshold: 0.001,
-          restSpeedThreshold: 0.001,
+          restDisplacementThreshold: 0.002,
+          restSpeedThreshold: 0.002,
         }}
         native
         from={{

@@ -10,7 +10,7 @@ react-slice-kit(){
 react-slice-kit your-project
 ```
 
-Wait done, themo open http://127.0.0.1:3300
+Wait done, then open http://127.0.0.1:3300
 
 ## Use
 
