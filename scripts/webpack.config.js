@@ -8,7 +8,6 @@ const dllPlugin = isHaveDll ? [tip.plugins.DllReferencePlugin] : [];
 const prodPlugin = !tip.isDev
   ? [
       tip.plugins.HtmlWebpackPlugin,
-      tip.plugins.DefinePlugin,
       tip.plugins.FastUglifyJsPluginProd,
       tip.plugins.HotModuleReplacementPlugin,
       tip.plugins.CleanWebpackPlugin,
@@ -23,6 +22,18 @@ module.exports = {
   devtool: tip.isDev ? tip.devtool.sourceMap : tip.devtool.none,
   entry: {
     index: tip.paths.entry,
+  },
+  output: {
+    path: tip.paths.output,
+    pathinfo: true,
+    filename: '[name]_[hash:8].js',
+    chunkFilename: '[name]_[hash:8].chunk.js',
+  },
+  externals: {},
+  resolve: {
+    extensions: tip.resolve.extensions,
+    alias: tip.resolve.alias,
+    plugins: [],
   },
   // webpack4默认的chunks参数
   optimization: {
@@ -47,18 +58,6 @@ module.exports = {
       }
     }
   },
-  output: {
-    path: tip.paths.output,
-    pathinfo: true,
-    filename: '[name]_[hash:8].js',
-    chunkFilename: '[name]_[hash:8].chunk.js',
-  },
-  resolve: {
-    extensions: tip.resolve.extensions,
-    alias: tip.resolve.alias,
-    plugins: [],
-  },
-  externals: {},
   module: {
     rules: [
       tip.module.rules.eslint,

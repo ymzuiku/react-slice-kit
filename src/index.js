@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import registerServiceWorker from './utils/registerServiceWorker';
-import { Provider } from 'react-redux';
 import { App } from './pages';
-import store from './actions/store';
+import { Provider, autoStorageSave, store } from 'redux-pillar';
+
+autoStorageSave('temp-loacl-key-name', ['test']);
 
 class Root extends React.PureComponent {
   render() {

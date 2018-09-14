@@ -4,10 +4,10 @@ export function vm(self, key, value) {
   });
 }
 
-export const springConfig = {
-  tension: 190,
-  friction: 23,
-  velocity: 0,
-  restDisplacementThreshold: 0.002,
-  restSpeedThreshold: 0.002,
-};
+export function tryfn(fn) {
+  try {
+    return fn();
+  } catch (err) {
+    return undefined;
+  }
+}
