@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title, FullCenter } from '../styleds';
-import { history } from '../components/navigation';
+import { history } from 'react-router-pillar';
 
 export default class extends React.PureComponent {
   render() {

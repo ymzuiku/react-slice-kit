@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'redux-pillar';
 import { Title, FullCenter, Button } from '../styleds';
-import { history } from '../components/navigation';
+import { history } from 'react-router-pillar';
 import * as actions from '../actions';
 
 class Home extends React.PureComponent {
