@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'redux-pillar';
+import { connect } from '../utils/reduxFp';
 import { Title, FullCenter, Button } from '../styleds';
 import { history } from 'react-router-pillar';
 import * as actions from '../actions';

@@ -7,12 +7,14 @@
     "lodash",
     "react",
     "react-dom",
-    "redux-pillar",
-    "react-router-pillar",
     "react-loadable",
     "react-spring",
     "styled-components",
-    "immutable"
+    "redux",
+    "redux-thunk",
+    "react-redux",
+    "immutable",
+    "react-router-pillar"
   ],
   "scripts": {
     "dll": "webpack --progress --config scripts/webpack.dll.js",
@@ -29,9 +31,11 @@
     "react-art": "16.4.2",
     "react-dom": "16.4.2",
     "react-loadable": "^5.5.0",
+    "react-redux": "^5.0.7",
     "react-router-pillar": "^1.0.0",
     "react-spring": "^5.7.2",
-    "redux-pillar": "^1.0.3",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.0.0-beta.4",
     "uuid": "^3.3.2"
   },

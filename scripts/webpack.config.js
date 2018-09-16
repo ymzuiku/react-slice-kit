@@ -18,15 +18,15 @@ const prodPlugin = !tip.isDev
 module.exports = {
   target: 'web',
   mode: tip.isDev ? tip.mode.development : tip.mode.production,
-  devtool: tip.isDev ? tip.devtool.sourceMap : tip.devtool.none,
+  devtool: tip.isDev ? tip.devtool.inlineSourceMap : tip.devtool.none,
   entry: {
     index: tip.paths.entry,
   },
   output: {
     path: tip.paths.output,
     pathinfo: true,
-    filename: '[name]_[hash:8].js',
-    chunkFilename: '[name]_[hash:8].chunk.js',
+    filename: tip.isDev ? '[name].js' : '[name]_[hash:8].js',
+    chunkFilename: tip.isDev ? '[name].chunk.js' : '[name]_[hash:8].chunk.js',
   },
   externals: {},
   resolve: {
@@ -47,15 +47,15 @@ module.exports = {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          priority: -10,
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   module: {
     rules: [
