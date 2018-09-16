@@ -5,6 +5,7 @@ console.log('packing dll: ', dllArray);
 
 module.exports = {
   mode: tip.mode.production,
+  devtool: tip.devtool.sourceMap,
   entry: {
     dll: dllArray,
   },

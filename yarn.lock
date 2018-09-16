@@ -5797,9 +5797,9 @@ react-redux@^5.0.7:
     loose-envify "^1.1.0"
     prop-types "^15.6.0"
 
-react-router-pillar@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-router-pillar/-/react-router-pillar-1.0.0.tgz#a28feedae7f3337f2fbf2f0420cae812d75be7d3"
+react-router-pillar@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-router-pillar/-/react-router-pillar-1.0.1.tgz#308a1a84d72bc79e5a00f2f802ba442ea1e1bed5"
   dependencies:
     history "^4.7.2"
     react "^16.5.1"

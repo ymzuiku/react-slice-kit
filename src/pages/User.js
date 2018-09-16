@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title, FullCenter } from '../styleds';
-import { history } from 'react-router-pillar';
+import { history } from '../components/navigation';
 
 export default class extends React.PureComponent {
   gotoUserInfo = () => {

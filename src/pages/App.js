@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, NaviRoute, history, hashChange } from 'react-router-pillar';
+import { Router, NaviRoute, history, hashChange } from '../components/navigation';
 import { Full } from '../styleds';
 import * as pages from './index';
 

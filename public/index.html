@@ -17,12 +17,33 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="shortcut icon" href="/favicon.ico">
   <style>
-    html,
+    html {
+      margin: 0px;
+      padding: 0px;
+    }
+
     body {
       margin: 0px;
       padding: 0px;
       height: 100%;
-      overflow-x: hidden;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    * {
+      -webkit-user-select: none;
+      -webkit-appearance: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    *,
+    *:before,
+    *:after {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
     }
 
     input,
@@ -69,6 +90,8 @@
       }
     }
   </style>
+  <!-- <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet"> -->
+
 </head>
 
 <body>
