@@ -71,19 +71,8 @@ function hashChange() {
     if (lastPathname !== nowHistory.pathname) {
       history._isBrowserAction = true;
       history.goBack();
-      // const pathname = history.entries[history.length - 2].pathname;
-      // for (let i = 0; i < history.length; i++) {
-      //   if (history.index > 1) {
-      //     doNavigationListen = false;
-      //     history.goBack();
-      //   }
-      // }
-      // doNavigationListen = true;
-      // history.push(pathname, { noAnime: true });
     }
-  } catch (err) {
-    // err
-  }
+  } catch (err) {}
 }
 
 if (!window.location) {
@@ -124,7 +113,7 @@ try {
   }
 } catch (err) {}
 
-let goToHome = function() {
+history.goHome = function() {
   const pathname = history.entries[1].pathname;
   for (let i = 0; i < history.length; i++) {
     if (history.index > 1) {
@@ -135,6 +124,7 @@ let goToHome = function() {
   doNavigationListen = true;
   history.push(pathname);
 };
+
 export {
   history,
   Route,
@@ -148,5 +138,4 @@ export {
   historyAddListen,
   historyRemoveListen,
   position,
-  goToHome,
 };

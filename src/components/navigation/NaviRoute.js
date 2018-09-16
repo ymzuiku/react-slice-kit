@@ -44,10 +44,8 @@ NaviRoute = class extends React.PureComponent {
       }
     }
     const isNearPage = h.index - index === 1;
-    let isImmediate = false;
-    if (h.location.state) {
-      isImmediate = h.location.state.noAnime ? true : false;
-    }
+    console.log(history._isBrowserAction);
+    let isImmediate = history._isBrowserAction;
     if (index === h.index && !this.state.nowRoute) {
       // 新页面从右边推到中间
       this.setState({
@@ -102,7 +100,7 @@ NaviRoute = class extends React.PureComponent {
       <Spring
         onRest={this.onRest}
         native
-        // immediate={isImmediate}
+        immediate={isImmediate}
         config={{
           tension: 190,
           friction: 23,

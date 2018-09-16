@@ -11,7 +11,6 @@ import {
   withRouter,
   historyAddListen,
   historyRemoveListen,
-  goToHome,
 } from './routerHistory';
 import NaviBar from './NaviBar';
 import NaviRoute from './NaviRoute';
@@ -30,7 +29,6 @@ export {
   withRouter,
   historyAddListen,
   historyRemoveListen,
-  goToHome,
   isIphoneX,
   NaviBar,
   NaviRoute,
