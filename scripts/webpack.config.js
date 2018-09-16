@@ -7,7 +7,6 @@ const dllPlugin = isHaveDll ? [tip.plugins.DllReferencePlugin] : [];
 
 const prodPlugin = !tip.isDev
   ? [
-      tip.plugins.HtmlWebpackPlugin,
       tip.plugins.FastUglifyJsPluginProd,
       tip.plugins.HotModuleReplacementPlugin,
       tip.plugins.CleanWebpackPlugin,
@@ -74,7 +73,6 @@ module.exports = {
   plugins: [
     tip.plugins.HtmlWebpackPlugin,
     tip.plugins.DefinePlugin,
-    tip.plugins.ReactLoadablePlugin,
     ...prodPlugin,
     ...dllPlugin,
   ],

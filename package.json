@@ -1,9 +1,8 @@
 {
   "name": "react-slice-kit",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "private": true,
   "dll": [
-    "uuid",
     "axios",
     "lodash",
     "react",
@@ -50,7 +49,6 @@
     "@types/jest": "^23.3.1",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
-    "@types/react-native": "^0.56.17",
     "@types/react-test-renderer": "^16.0.2",
     "autoprefixer": "^9.0.0",
     "babel-eslint": "^9.0.0",
@@ -93,7 +91,7 @@
     "lint"
   ],
   "jest": {
-    "preset": "react-native",
+    "preset": "react",
     "moduleFileExtensions": [
       "ts",
       "tsx",
