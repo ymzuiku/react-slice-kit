@@ -1,5 +1,10 @@
 import React from 'react';
-import { Route, historyAddListen, historyRemoveListen, history } from './routerHistory';
+import {
+  Route,
+  historyAddListen,
+  historyRemoveListen,
+  history,
+} from './routerHistory';
 import { Spring, animated } from 'react-spring';
 
 const IProps = {
@@ -15,6 +20,14 @@ const IProps = {
 };
 
 let NaviRoute = (v = IProps) => <View />;
+
+let springConfig = {
+  tension: 190,
+  friction: 23,
+  velocity: 0,
+  restDisplacementThreshold: 0.002,
+  restSpeedThreshold: 0.002,
+};
 
 NaviRoute = class extends React.PureComponent {
   static defaultProps = { ...IProps };
@@ -100,14 +113,7 @@ NaviRoute = class extends React.PureComponent {
       <Spring
         onRest={this.onRest}
         native
-        immediate={isImmediate}
-        config={{
-          tension: 190,
-          friction: 23,
-          velocity: 0,
-          restDisplacementThreshold: 0.002,
-          restSpeedThreshold: 0.002,
-        }}
+        config={springConfig}
         from={{
           transform: `perspective(600px) translate3d(${moveAnimeA}px,0,0)`,
         }}
@@ -123,7 +129,9 @@ NaviRoute = class extends React.PureComponent {
               position: 'fixed',
               backgroundColor: this.props.backgroundColor,
               zIndex: this.state.index * 10,
-              transform: sp.transform,
+              transform: isImmediate
+                ? `perspective(600px) translate3d(${moveAnimeB}px,0,0)`
+                : sp.transform,
             }}
           >
             <Route
