@@ -21,7 +21,7 @@
     "dll": "webpack --progress --config scripts/webpack.dll.js",
     "build": "prod=1 webpack --config scripts/webpack.config.js",
     "web": "webpack-dev-server --config scripts/webpack.config.js",
-    "lint": "node_modules/.bin/eslint 'src/**/*.js' --cache --cache-location './bb/.cache/.eslint_cache/'",
+    "lint": "node_modules/.bin/eslint 'src/**/*.js' --cache --cache-location './node_modules/.cache/.eslint_cache/'",
     "test": "jest"
   },
   "dependencies": {
