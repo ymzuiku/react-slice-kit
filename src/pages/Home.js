@@ -1,11 +1,11 @@
 import React from 'react';
+import history from 'history/createHashHistory';
 import { connect } from '../utils/reduxFp';
-import { history } from '../components/navigation';
 import * as actions from '../actions';
 
 class Home extends React.PureComponent {
   gotoUser = () => {
-    history.push('/User/');
+    history().push('/User/');
   };
   componentDidMount() {
     if (this.props.num === undefined) {
@@ -20,10 +20,12 @@ class Home extends React.PureComponent {
   };
   render() {
     return (
-      <div className="col vh100">
-        <div onClick={this.gotoUser}>Home page {this.props.num}</div>
-        <button className='button' onClick={this.addNum}>add num</button>
-        <button className='button' onClick={this.lessenNum}>lessen num</button>
+      <div className="col center vh100">
+        <button className="btn" onClick={this.gotoUser}>
+          Home page {this.props.num}
+        </button>
+        <div onClick={this.addNum}>add num</div>
+        <div onClick={this.lessenNum}>lessen num</div>
       </div>
     );
   }
