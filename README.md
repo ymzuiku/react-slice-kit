@@ -17,7 +17,7 @@ Wait done, then open http://127.0.0.1:3300
 Run dev serve
 
 ```sh
-$ yarn web
+$ yarn start
 ```
 
 Build Product projcet

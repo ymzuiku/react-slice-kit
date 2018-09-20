@@ -43,11 +43,11 @@ button {
 
 #perload {
   z-index: 9999;
-  height: 7%;
+  height: 4vh;
   overflow: hidden;
   position: fixed;
-  left: 46.5%;
-  top: 42.5%;
+  left: 48vw;
+  top: 42.5vh;
   opacity: 0.3;
   animation: 2s linear infinite spin;
   -webkit-animation: 2s linear infinite spin;
