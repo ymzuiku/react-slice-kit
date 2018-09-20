@@ -9,12 +9,12 @@
     "react-dom",
     "react-loadable",
     "react-spring",
-    "styled-components",
     "redux",
     "redux-thunk",
     "react-redux",
     "immutable",
-    "react-router-dom"
+    "react-router-dom",
+    "history"
   ],
   "scripts": {
     "dll": "webpack --progress --config scripts/webpack.dll.js",
@@ -29,16 +29,13 @@
     "immutable": "^3.8.2",
     "lodash": "^4.17.10",
     "react": "16.4.2",
-    "react-art": "16.4.2",
     "react-dom": "16.4.2",
     "react-loadable": "^5.5.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-spring": "^5.7.2",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^4.0.0-beta.4",
-    "uuid": "^3.3.2"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
