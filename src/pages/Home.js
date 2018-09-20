@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from '../utils/reduxFp';
-import { Title, FullCenter, Button } from '../styleds';
 import { history } from '../components/navigation';
 import * as actions from '../actions';
 
@@ -21,11 +20,11 @@ class Home extends React.PureComponent {
   };
   render() {
     return (
-      <FullCenter>
-        <Title onClick={this.gotoUser}>Home page {this.props.num}</Title>
-        <Button onClick={this.addNum}>add num</Button>
-        <Button onClick={this.lessenNum}>lessen num</Button>
-      </FullCenter>
+      <div className="col vh100">
+        <div onClick={this.gotoUser}>Home page {this.props.num}</div>
+        <button className='button' onClick={this.addNum}>add num</button>
+        <button className='button' onClick={this.lessenNum}>lessen num</button>
+      </div>
     );
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Title, FullCenter } from '../styleds';
 import { history } from '../components/navigation';
 
 export default class extends React.PureComponent {
@@ -8,10 +7,10 @@ export default class extends React.PureComponent {
   };
   render() {
     return (
-      <FullCenter>
-        <Title onClick={this.gotoUserInfo} >User page</Title>
-        <Title onClick={history.goBack} >GoBack</Title>
-      </FullCenter>
+      <div className='col vh100'>
+        <div onClick={this.gotoUserInfo} >User page</div>
+        <div onClick={history.goBack} >GoBack</div>
+      </div>
     );
   }
 }

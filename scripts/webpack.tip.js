@@ -259,6 +259,9 @@ class Tip {
               loader: 'style-loader',
             },
             {
+              loader: 'css-loader',
+            },
+            {
               loader: 'stylus-loader',
               options: {
                 strictMath: true,
@@ -292,6 +295,9 @@ class Tip {
           use: [
             {
               loader: 'style-loader',
+            },
+            {
+              loader: 'css-loader',
             },
             {
               loader: 'less-loader',
