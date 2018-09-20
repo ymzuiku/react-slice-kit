@@ -5,7 +5,7 @@ copy this code to Terminal, and change `<your-project>` string
 ```sh
 react-slice-kit(){
   git clone -b master --single-branch https://github.com/ymzuiku/react-slice-kit $1
-  cd $1 && yarn install && yarn dll && clear && yarn web
+  cd $1 && yarn install && yarn dll && clear && yarn start
 }
 react-slice-kit your-project
 ```
