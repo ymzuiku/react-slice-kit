@@ -1,7 +1,7 @@
-const cacheGlobalData = {};
+const fpCacheData = {};
 export default {
   cache: function(key, obj, data) {
-    const cacheData = data || cacheGlobalData;
+    const cacheData = data || fpCacheData;
     let value = obj;
     if (typeof obj === 'object') {
       value = JSON.stringify(obj);
