@@ -1,6 +1,6 @@
 import React from 'react';
 
-// HOC风格 使用 with 开头命名
+// HOC风格 使用 with 开头命名文件
 export default function (Wrapper) {
   return class extends React.PureComponent {
     state = {

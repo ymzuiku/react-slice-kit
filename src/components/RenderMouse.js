@@ -1,6 +1,6 @@
 import React from 'react';
 
-// RenderProps风格 使用 Render开头命名
+// RenderProps风格 使用 Render开头命名文件
 export default class extends React.PureComponent {
   state = {
     isMouseIn: false,
