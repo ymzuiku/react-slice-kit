@@ -1,6 +1,7 @@
-const cacheData = {};
+const cacheGlobalData = {};
 export default {
-  cache: function(key, obj) {
+  cache: function(key, obj, data) {
+    const cacheData = data || cacheGlobalData;
     let value = obj;
     if (typeof obj === 'object') {
       value = JSON.stringify(obj);
@@ -13,15 +14,6 @@ export default {
       value,
     };
     return obj;
-  },
-  got: function(fn) {
-    try {
-      return fn();
-    } catch (error) {
-      // eslint-disable-next-line
-      // console.warn('fp-safe:', error);
-      return undefined;
-    }
   },
   json: function(obj, isCopy) {
     if (typeof obj === 'string') {
