@@ -1,0 +1,19 @@
+// home 相关的所有样式放在 home.scss 中
+.home-bg {
+  @extend .center;
+  @extend .col;
+  width: 100%;
+  height: 100%;
+}
+.home-btn {
+  background-color: $c-grey;
+  font-size: 40px;
+  margin: $a1;
+}
+
+.home-add-btn {
+  background-color: $c-grey;
+  font-size: 20px;
+  padding: $a2;
+  margin: $a1;
+}

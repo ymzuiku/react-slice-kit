@@ -22,8 +22,7 @@ module.exports = {
   module: {
     strictExportPresence: true,
     rules: [
-      tip.module.rules.cssLoader,
-      tip.module.rules.stylusLoader,
+      tip.module.rules.sassLoader,
       tip.module.rules.urlLoader,
       tip.module.rules.fileLoader,
       tip.module.rules.sourceMapLoader,

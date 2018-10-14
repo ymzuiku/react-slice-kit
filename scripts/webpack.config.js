@@ -2,7 +2,6 @@ const fs = require('fs-extra');
 const tip = require('./webpack.tip')();
 const resolve = require('path').resolve;
 const isHaveDll = fs.existsSync(resolve(tip.paths.dll, 'dll.js'));
-
 const dllPlugin = isHaveDll ? [tip.plugins.DllReferencePlugin] : [];
 
 const prodPlugin = !tip.isDev
@@ -60,8 +59,7 @@ module.exports = {
   module: {
     rules: [
       tip.module.rules.eslint,
-      tip.module.rules.cssLoader,
-      tip.module.rules.lessLoader,
+      tip.module.rules.sassLoader,
       tip.module.rules.urlLoader,
       tip.module.rules.fileLoader,
       tip.module.rules.sourceMapLoader,

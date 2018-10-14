@@ -3,9 +3,12 @@ import thunkMiddleware from 'redux-thunk';
 import { Provider, connect } from 'react-redux';
 import { Map, fromJS } from 'immutable';
 
-function rootReducer(state = Map({}), actions) {
-  if (actions.reducer) {
-    return actions.reducer(state) || state;
+function rootReducer(state = Map({}), action) {
+  if(!action.type) {
+    action.type = 'NOTYPE';
+  }
+  if (action.reducer) {
+    return action.reducer(state) || state;
   }
   return state;
 }

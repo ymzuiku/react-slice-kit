@@ -4,10 +4,9 @@ import history from 'history/createHashHistory';
 export default class extends React.PureComponent {
   render() {
     return (
-      <div className="col center vh100">
-        <button className="btn" onClick={history().goBack}>
-          User Info page
-        </button>
+      <div className="user-bg">
+        <button className='user-btn'>User page</button>
+        <button className='user-btn' onClick={history().goBack}>GoBack</button>
       </div>
     );
   }

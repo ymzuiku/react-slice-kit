@@ -8,7 +8,7 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
@@ -40,13 +40,13 @@ button {
   border: none;
 }
 
-#root {
+.root {
   display: flex;
   height: 100%;
   width: 100%;
 }
 
-#perload {
+.perload {
   z-index: 9999;
   height: 4vh;
   overflow: hidden;

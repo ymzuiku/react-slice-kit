@@ -9,6 +9,26 @@ const autoprefixer = require('autoprefixer');
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const isDev = process.env.prod !== '1';
 
+const postcssLoader = {
+  loader: 'postcss-loader',
+  options: {
+    sourceMap: true,
+    ident: 'postcss',
+    plugins: () => [
+      require('postcss-flexbugs-fixes'),
+      autoprefixer({
+        browsers: [
+          '>1%',
+          'last 4 versions',
+          'Firefox ESR',
+          'not ie < 9', // React doesn't support IE8 anyway
+        ],
+        flexbox: 'no-2009',
+      }),
+    ],
+  },
+};
+
 class Tip {
   constructor(paths, port = 3300) {
     const rootPath = process.cwd();
@@ -17,7 +37,7 @@ class Tip {
       output: resolve(rootPath, 'build'),
       public: resolve(rootPath, 'public'),
       package: resolve(rootPath, 'package.json'),
-      entry: resolve(rootPath, 'src/index.js'),
+      entry: resolve(rootPath, 'src/app.js'),
       src: resolve(rootPath, 'src'),
       dll: resolve(rootPath, 'public/dll'),
       reactLoadablePath: resolve(rootPath, 'react-loadable.json'),
@@ -62,27 +82,28 @@ class Tip {
     };
     this.devServer = {
       contentBase: this.paths.public,
+      disableHostCheck: true,
       watchContentBase: true,
-      port: port,
+      // port: port,
       host: '0.0.0.0',
       useLocalIp: true,
       // hot: true, //开启有可能不显示内容
-      open: false,
+      // open: false,
       progress: false,
-      openPage: '/',
-      allowedHosts: [],
-      headers: {},
-      disableHostCheck: false,
+      // openPage: '/',
+      // allowedHosts: [],
+      // headers: {},
+      // disableHostCheck: false,
       compress: true,
-      clientLogLevel: 'info',
-      https: false,
-      lazy: false,
-      before: function(app) {},
-      after: function(app) {},
+      // clientLogLevel: 'info',
+      // https: false,
+      // lazy: false,
+      // before: function(app) {},
+      // after: function(app) {},
       quiet: false, //屏蔽所有错误,控制台中输出打包的信息
       inline: true, //开启页面自动刷新
       stats: 'errors-only',
-      noInfo: false,
+      // noInfo: false,
       proxy: {
         // '/api-proxy': 'http://localhost:7000',
       },
@@ -230,37 +251,32 @@ class Tip {
         cssLoader: {
           test: /\.css$/,
           use: [
-            { loader: 'css-loader' },
+            'style-loader',
+            'css-loader',
+          ],
+        },
+        sassLoader: {
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            postcssLoader,
             {
-              loader: 'postcss-loader',
+              loader: 'sass-loader',
               options: {
+                strictMath: true,
+                noIeCompat: true,
                 sourceMap: true,
-                ident: 'postcss',
-                plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer({
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie < 9', // React doesn't support IE8 anyway
-                    ],
-                    flexbox: 'no-2009',
-                  }),
-                ],
               },
             },
           ],
         },
         stylusLoader: {
-          test: /\.styl$/,
+          test: /\.(styl|css)$/,
           use: [
-            {
-              loader: 'style-loader',
-            },
-            {
-              loader: 'css-loader',
-            },
+            'style-loader',
+            'css-loader',
+            postcssLoader,
             {
               loader: 'stylus-loader',
               options: {
@@ -269,61 +285,20 @@ class Tip {
                 sourceMap: true,
               },
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                ident: 'postcss',
-                plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer({
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie < 9', // React doesn't support IE8 anyway
-                    ],
-                    flexbox: 'no-2009',
-                  }),
-                ],
-              },
-            },
           ],
         },
         lessLoader: {
-          test: /\.less$/,
+          test: /\.(less|css)$/,
           use: [
-            {
-              loader: 'style-loader',
-            },
-            {
-              loader: 'css-loader',
-            },
+            'style-loader',
+            'css-loader',
+            postcssLoader,
             {
               loader: 'less-loader',
               options: {
                 strictMath: true,
                 noIeCompat: true,
                 sourceMap: true,
-              },
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                ident: 'postcss',
-                plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer({
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie < 9', // React doesn't support IE8 anyway
-                    ],
-                    flexbox: 'no-2009',
-                  }),
-                ],
               },
             },
           ],
