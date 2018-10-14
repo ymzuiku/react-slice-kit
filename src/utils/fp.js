@@ -1,7 +1,7 @@
-const fpCacheData = {};
-export default {
+const fp = {
+  cacheData: {},
   cache: function(key, obj, data) {
-    const cacheData = data || fpCacheData;
+    const cacheData = data || fp.cacheData;
     let value = obj;
     if (typeof obj === 'object') {
       value = JSON.stringify(obj);
@@ -75,3 +75,5 @@ export default {
     return pPattern.test(str);
   },
 };
+
+export default fp;

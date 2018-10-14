@@ -4,10 +4,12 @@
 
 import fp from '../utils/fp';
 
+const getterData = {};
+
 export const getUserData = state => {
   let userData = state.getIn(['test', 'userData']);
   if (userData && userData.token) {
     userData.isLogin = true;
   }
-  return fp.cache('getUserData', userData);
+  return fp.cache('getUserData', userData, getterData);
 };
