@@ -1,8 +1,7 @@
 import React from 'react';
 
 // HOC风格 使用 with 开头命名
-// 不要隐藏方法名，更好排查bug
-export default function withMouse(Wrapper) {
+export default function (Wrapper) {
   return class extends React.PureComponent {
     state = {
       isMouseIn: false,
