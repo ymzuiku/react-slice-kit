@@ -1,4 +1,19 @@
+const cacheData = {};
 export default {
+  cache: function(key, obj) {
+    let value = obj;
+    if (typeof obj === 'object') {
+      value = JSON.stringify(obj);
+    }
+    if (cacheData[key] && cacheData[key].value === value) {
+      return cacheData[key].obj;
+    }
+    cacheData[key] = {
+      obj,
+      value,
+    };
+    return obj;
+  },
   got: function(fn) {
     try {
       return fn();

@@ -1,3 +1,7 @@
+import * as getter from './getter';
+
+export { getter };
+
 export function setNum(num) {
   return dispatch => {
     dispatch({
