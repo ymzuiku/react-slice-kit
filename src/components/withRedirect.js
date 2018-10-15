@@ -8,9 +8,13 @@ export default function(isRedirect, redirectPath, Wrapper) {
     };
     constructor(props) {
       super(props);
-      if (isRedirect) {
-        history().push(redirectPath);
-      }
+      if (Object.prototype.toString.call(isRedirect) === '[object Function]') {
+        if (isRedirect()) {
+          history().push(redirectPath);
+        }
+      } else if (isRedirect) {
+          history().push(redirectPath);
+        }
     }
     render() {
       return <Wrapper {...this.props} />;
