@@ -1,11 +1,11 @@
 // user 相关的所有样式放在 home.scss 中
-.user-bg {
+.login-bg {
   @extend .center;
   @extend .col;
   width: 100%;
   height: 100%;
 }
-.user-btn {
+.login-btn {
   background-color: $c-grey;
   font-size: 40px;
   margin: $a1;

@@ -5,10 +5,13 @@ import Loading from '../components/Loading';
 loadable.setDefaultLoadingComponent(Loading);
 
 const Home = loadable.load(() => import('./Home'));
-const User = loadable.load(() => import('./User'));
+const Login = loadable.load(() => import('./Login'));
 
-export default [
-  { path: '/', redirect: '/home/' },
-  { path: '/home/*', component: Home },
-  { path: '/user/*', component: User },
-];
+export default function(store) {
+  // use store do someting
+  return [
+    { path: '/', redirect: '/home/' },
+    { path: '/home/*', component: Home },
+    { path: '/login/*', component: Login },
+  ];
+}

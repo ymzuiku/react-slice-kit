@@ -33,7 +33,7 @@ const HOCMouse = withMouse(
 
 class Home extends React.PureComponent {
   gotoUser = () => {
-    history().push('/user/');
+    history().push('/login/');
   };
   componentDidMount() {
     if (this.props.num === undefined) {

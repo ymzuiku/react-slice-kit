@@ -13,7 +13,7 @@ class App extends React.PureComponent {
       <Provider store={store}>
         <HashRouter>
           <Switch>
-            {routers.map(routerProps => {
+            {routers(store).map(routerProps => {
               if (routerProps.redirect) {
                 return (
                   <Route
