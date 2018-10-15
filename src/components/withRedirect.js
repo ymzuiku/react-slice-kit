@@ -1,15 +1,15 @@
 import React from 'react';
 import history from 'history/createHashHistory';
 
-export default function(isJump, redirect, Wrapper) {
+export default function(isRedirect, redirectPath, Wrapper) {
   return class extends React.PureComponent {
     state = {
       isMouseIn: false,
     };
     constructor(props) {
       super(props);
-      if (isJump) {
-        history().push(redirect);
+      if (isRedirect) {
+        history().push(redirectPath);
       }
     }
     render() {
