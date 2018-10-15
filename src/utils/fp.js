@@ -38,6 +38,20 @@ const fp = {
       }
     }
   },
+  got: function(fn) {
+    try {
+      return fn();
+    } catch (error) {
+      // eslint-disable-next-line
+      // console.warn('fp-safe:', error);
+      return undefined;
+    }
+  },
+  vm(self, key, value) {
+    self.setState({
+      [key]: value,
+    });
+  },
   timefn: function(fn, k) {
     k = k || 'timefn';
     // eslint-disable-next-line
