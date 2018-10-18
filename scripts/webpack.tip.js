@@ -32,6 +32,7 @@ const postcssLoader = {
 class Tip {
   constructor(paths, port = 3300) {
     const rootPath = process.cwd();
+    this.isDev = isDev;
     this.paths = {
       root: rootPath,
       output: resolve(rootPath, 'build'),
@@ -44,7 +45,6 @@ class Tip {
       template: resolve(rootPath, 'public/index.html'),
       ...paths,
     };
-    this.isDev = isDev;
     if (!isDev) {
       fs.mkdirpSync(this.paths.output);
     }
@@ -251,10 +251,7 @@ class Tip {
         },
         cssLoader: {
           test: /\.css$/,
-          use: [
-            'style-loader',
-            'css-loader',
-          ],
+          use: ['style-loader', 'css-loader'],
         },
         sassLoader: {
           test: /\.(sa|sc|c)ss$/,

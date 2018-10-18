@@ -6447,11 +6447,6 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-css-pseudo@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-css-pseudo/-/react-css-pseudo-1.0.3.tgz#a6b93f3f5e618d1f736395015fc4360708ea29ca"
-  integrity sha512-yhS2fTVaOoekqLm3+/Rz7WMt5s09CXY12KI7XllbM1Ved2NSJBVhHJr/8ULneqbDcF4hm613dkAlRQdPgpBBYg==
-
 react-dev-utils@^5.0.2:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.3.tgz#92f97668f03deb09d7fa11ea288832a8c756e35e"
@@ -6475,6 +6470,11 @@ react-dev-utils@^5.0.2:
     sockjs-client "1.1.5"
     strip-ansi "3.0.1"
     text-table "0.2.0"
+
+react-dom-pseudo@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-dom-pseudo/-/react-dom-pseudo-1.0.3.tgz#b5ab3da02eb57cbafd2592662c8a045797f5cb06"
+  integrity sha512-oH0cUwrbDDn63WmjT9HG3jQQGgicf2WO2rNXOZu/ynn0dJ2gGiPzV+Vu41GC4FYQgDQ7gQuYHXJzCucdpyN6Ww==
 
 react-dom@^16.5.2:
   version "16.5.2"

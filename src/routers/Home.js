@@ -3,7 +3,7 @@ import history from 'history/createHashHistory';
 import { connect } from '../utils/reduxFp';
 import * as actions from '../actions';
 import * as gs from './globalStyles';
-import Pseudo from 'react-css-pseudo';
+import Pseudo from 'react-dom-pseudo';
 
 function mapStateToProps(state) {
   return {
@@ -39,10 +39,20 @@ export default connect(
       this.props.setNum(this.props.num - 1);
     };
     render() {
+      const test = {
+        test: 'bb',
+        fdsaf: 'cc',
+      };
       return (
-        <div style={sheet.bg}>
+        <div {...test} style={sheet.bg}>
           <Pseudo style={sheet.title} hoverStyle={sheet.titleHover}>
             Home Page
+          </Pseudo>
+          <Pseudo>
+            {(events, state) => {
+              const mouseState = state.hover ? 'mouseIn' : 'mouseOut';
+              return <div {...events}>{mouseState}</div>;
+            }}
           </Pseudo>
           <div className="home-add-btn" onClick={this.addNum}>
             redux add num
