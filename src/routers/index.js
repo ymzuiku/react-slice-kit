@@ -1,4 +1,3 @@
-import './_index.scss';
 import loadable from '../utils/loadable';
 import Loading from '../components/Loading';
 

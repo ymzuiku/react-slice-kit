@@ -167,6 +167,7 @@ class Tip {
                 ['@babel/plugin-proposal-class-properties', { loose: true }],
                 'styled-components',
                 '@babel/plugin-syntax-dynamic-import',
+                'transform-react-jsx',
                 ['transform-class-properties', { spec: true }],
                 [
                   '@babel/plugin-transform-runtime',
