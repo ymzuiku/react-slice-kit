@@ -1,8 +1,6 @@
 import React from 'react';
 import history from 'history/createHashHistory';
 import { connect } from '../utils/reduxFp';
-import withMouse from '../components/withMouse';
-import RenderMouse from '../components/RenderMouse';
 import * as actions from '../actions';
 import * as gs from './globalStyles';
 
@@ -19,18 +17,6 @@ function mapDispatchToProps(dispatch) {
     },
   };
 }
-
-const HOCMouse = withMouse(
-  class extends React.PureComponent {
-    render() {
-      return (
-        <div className="home-bg">
-          HOC: {this.props.isMouseIn ? 'mouse-in' : 'mouse-out'}
-        </div>
-      );
-    }
-  },
-);
 
 export default connect(
   mapStateToProps,
@@ -55,17 +41,6 @@ export default connect(
       return (
         <div style={sheet.bg}>
           <button className="home-btn">Home Page</button>
-          <HOCMouse />
-          <RenderMouse>
-            {renderMouse => (
-              <div>
-                <div>
-                  renderProps:{' '}
-                  {renderMouse.isMouseIn ? 'mouse-in' : 'mouse-out'}
-                </div>
-              </div>
-            )}
-          </RenderMouse>
           <div className="home-add-btn" onClick={this.addNum}>
             redux add num
           </div>
