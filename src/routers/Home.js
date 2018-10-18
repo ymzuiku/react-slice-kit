@@ -3,6 +3,7 @@ import history from 'history/createHashHistory';
 import { connect } from '../utils/reduxFp';
 import * as actions from '../actions';
 import * as gs from './globalStyles';
+import Pseudo from 'react-css-pseudo';
 
 function mapStateToProps(state) {
   return {
@@ -40,7 +41,9 @@ export default connect(
     render() {
       return (
         <div style={sheet.bg}>
-          <button className="home-btn">Home Page</button>
+          <Pseudo style={sheet.title} hoverStyle={sheet.titleHover}>
+            Home Page
+          </Pseudo>
           <div className="home-add-btn" onClick={this.addNum}>
             redux add num
           </div>
@@ -62,6 +65,12 @@ const sheet = {
     ...gs.col,
     ...gs.center,
     width: '100%',
+  },
+  title: {
+    color: gs.black,
+  },
+  titleHover: {
+    color: gs.mix(gs.black, '#f00', 0.5),
   },
   button: {
     margin: gs.a1,

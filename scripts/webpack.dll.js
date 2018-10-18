@@ -1,6 +1,21 @@
 const tip = require('./webpack.tip')();
 const packageJSON = require(tip.paths.package);
 const dllArray = packageJSON.dll || [];
+// "dll": [
+//   "react",
+//   "react-dom",
+//   "react-loadable",
+//   "react-spring",
+//   "redux",
+//   "redux-thunk",
+//   "react-redux",
+//   "immutable",
+//   "react-router-dom",
+//   "history",
+//   "axios",
+//   "mix-color",
+//   "lodash"
+// ],
 console.log('packing dll: ', dllArray);
 
 module.exports = {

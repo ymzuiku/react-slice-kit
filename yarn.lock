@@ -6447,6 +6447,11 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-css-pseudo@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-css-pseudo/-/react-css-pseudo-1.0.3.tgz#a6b93f3f5e618d1f736395015fc4360708ea29ca"
+  integrity sha512-yhS2fTVaOoekqLm3+/Rz7WMt5s09CXY12KI7XllbM1Ved2NSJBVhHJr/8ULneqbDcF4hm613dkAlRQdPgpBBYg==
+
 react-dev-utils@^5.0.2:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.3.tgz#92f97668f03deb09d7fa11ea288832a8c756e35e"
