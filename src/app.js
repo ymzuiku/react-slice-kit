@@ -17,13 +17,14 @@ class App extends React.PureComponent {
               if (routerProps.redirect) {
                 return (
                   <Route
+                    key={routerProps.path}
                     exact
                     path={routerProps.path}
                     render={() => <Redirect to={routerProps.redirect} />}
                   />
                 );
               }
-              return <Route exact {...routerProps} />;
+              return <Route key={routerProps.path} exact {...routerProps} />;
             })}
           </Switch>
         </HashRouter>

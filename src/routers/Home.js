@@ -92,6 +92,6 @@ const sheet = {
     margin: gs.a1,
     color: gs.white,
     borderRadius: gs.a1,
-    background: gs.mainColor,
-  }
+    background: gs.mix('#ff0000', '#ffffff88', 0.1),
+  },
 };

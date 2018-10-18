@@ -1,5 +1,5 @@
 export * from '../utils/stylesFp';
-import mix from '../utils/mix';
+import mix from 'mix-color';
 export { mix };
 
 export const a1 = '2px';
