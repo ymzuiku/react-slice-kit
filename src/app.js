@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import routers from './routers';
 import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Provider, autoStorageSave, store } from './utils/reduxFp';
-import './utils/registerServiceWorker';
+import * as serviceWorker from './utils/serviceWorker';
 
 autoStorageSave('react-slice-kit-v0.01', ['test']);
 
@@ -34,3 +34,5 @@ class App extends React.PureComponent {
 }
 
 render(<App />, document.getElementById('root'));
+
+serviceWorker.unregister();
